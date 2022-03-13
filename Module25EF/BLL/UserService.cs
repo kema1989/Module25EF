@@ -23,5 +23,7 @@ namespace Module25EF.BLL
 
         }
 
+        //public User GetUserById
+
     }
 }

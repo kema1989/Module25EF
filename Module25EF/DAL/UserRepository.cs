@@ -40,5 +40,10 @@ namespace Module25EF
             db.Users.FirstOrDefault(u => u.Id == id).Name = Console.ReadLine();
             db.SaveChanges();
         }
+
+        public void AddABook(Book book)
+        {
+            
+        }
     }
 }

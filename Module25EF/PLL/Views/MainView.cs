@@ -11,7 +11,7 @@ namespace Module25EF
     {
         public void Show()
         {
-            Message.Yellow("Здравствуйте, рады вас видеть!");
+            Message.Green("Здравствуйте, рады вас видеть!");
             Console.WriteLine("Войти в профиль (нажмите 1)");
             Console.WriteLine("Впервые здесь? Зарегистрируйтесь (нажмите 2)");
             Message.Red("Выйти (нажмите 3)");

@@ -15,9 +15,9 @@ namespace Module25EF.PLL.Helpers
             Console.ResetColor();
         }
 
-        public static void Yellow(string message)
+        public static void Blue(string message)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(message);
             Console.ResetColor();
         }
