@@ -9,21 +9,21 @@ namespace Module25EF.PLL.Views
 {
     public class UserAuthenticationView
     {
-        UserService userService;
-        public UserAuthenticationView(UserService userService)
+        UserRepository userRepository;
+        public UserAuthenticationView(UserRepository userRepository)
         {
-            this.userService = userService;
+            this.userRepository = userRepository;
         }
         public void Show()
         {
-            Console.WriteLine("Введите email: ");
+            Console.WriteLine("Введите email:");
             var email = Console.ReadLine();
-            Console.WriteLine("Введите пароль: ");
+            Console.WriteLine("Введите пароль:");
             var password = Console.ReadLine();
 
             try
             {
-                var user = userService.FindByEmail(email);
+                var user = userRepository.GetUserByEmail(email);
                 if (user.Password != password)
                 {
                     Console.WriteLine("Неверный пароль!");

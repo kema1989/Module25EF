@@ -8,22 +8,30 @@ namespace Module25EF.BLL
 {
     public class UserService
     {
-        UserRepository userRepository; 
-        BookService bookService;
+        //UserRepository userRepository; 
+        ////BookService bookService;
 
-        public UserService()
-        {
-        }
+        //public UserService()
+        //{
+        //    userRepository = new UserRepository();
+        //    //bookService = new BookService();
+        //}
 
-        public void Register()
-        {
+        //public void Register(string name, string email, string password)
+        //{
+        //    userRepository.Add(new User { Name = name, Email = email, Password = password });
+        //}
 
-        }
+        //public User FindByEmail(string email)
+        //{
+        //    return userRepository.GetUserByEmail(email);
+        //}
 
-        public User FindByEmail(string email)
-        {
-            return userRepository.GetUserByEmail(email);
-        }
+        //public List<Book> GetAllUsersBooks(int id)
+        //{
+        //    return userRepository.GetUserById(id).Books;
+        //}
+
 
     }
 }

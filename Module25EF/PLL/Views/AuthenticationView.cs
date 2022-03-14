@@ -10,12 +10,12 @@ namespace Module25EF
     {
         public void Show()
         {
-            Console.WriteLine("Войти в профиль (нажмите 1)");
-            Console.WriteLine("Зарегистрироваться (нажмите 2)");
-            Console.WriteLine("Выйти (нажмите 0)");
-
             while (true)
             {
+                Console.WriteLine("Войти в профиль (нажмите 1)");
+                Console.WriteLine("Зарегистрироваться (нажмите 2)");
+                Console.WriteLine("Выйти (нажмите 0)");
+
                 switch (Console.ReadLine())
                 {
                     case "1":

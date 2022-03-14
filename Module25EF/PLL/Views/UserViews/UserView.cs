@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Module25EF.PLL.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,13 @@ namespace Module25EF.PLL.Views
                 switch (keyValue)
                 {
                     case "1":
-
+                        Program.userBooksView.Show(user);
                         break;
                     case "2":
+                        Program.bookLibraryView.Show(user);
                         break;
                     case "3":
+                        AnnoyingAdvertisement.Show(user);
                         break;
                 }
 

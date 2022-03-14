@@ -9,9 +9,9 @@ namespace Module25EF
     public class UserRepository
     {
         private AppContext db;
-        public UserRepository(AppContext db)
+        public UserRepository()
         {
-            this.db = db;
+            db = new AppContext();
         }
         public List<User> GetAllUsers()
         {
@@ -46,9 +46,12 @@ namespace Module25EF
             db.SaveChanges();
         }
 
-        public void AddABook(Book book)
+        public void BuyABook(int id, Book book)
         {
-            
+            db.Users.FirstOrDefault(u => u.Id == id).Balance -= book.Cost;
+            db.Users.FirstOrDefault(u => u.Id == id).Books.Add(book);
+
+            db.SaveChanges();
         }
     }
 }

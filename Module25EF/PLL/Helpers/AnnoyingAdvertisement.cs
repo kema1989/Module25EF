@@ -9,7 +9,7 @@ namespace Module25EF.PLL.Helpers
 {
     public static class AnnoyingAdvertisement
     {
-        public static void Show()
+        public static void Show(User user)
         {
             Ad("1xBet - ставки на спорт");
             Thread.Sleep(1000);
@@ -20,6 +20,7 @@ namespace Module25EF.PLL.Helpers
             Ad("Cake - разговорный английский по 10 минут в день");
             Thread.Sleep(1000);
             Console.WriteLine();
+            user.Balance += 100;
         }
 
         public static void Ad(string adMessage)
