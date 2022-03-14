@@ -11,12 +11,12 @@ namespace Module25EF.BLL
         BookRepository bookRepository;
         UserRepository userRepository;
 
-        public BookService(AppContext db)
+        public BookService()
         {
-            bookRepository = new BookRepository(db);
-            userRepository = new UserRepository(db);
         }
 
-
+        public void BuyABook(Book book)
+        {
+        }
     }
 }

@@ -11,9 +11,9 @@ namespace Module25EF
     {
         public void Show()
         {
-            Message.Green("Здравствуйте, рады вас видеть!");
-            Console.WriteLine("Войти в профиль (нажмите 1)");
-            Console.WriteLine("Впервые здесь? Зарегистрируйтесь (нажмите 2)");
+            Message.Green("Здравствуйте, вас приветствует E-Library!");
+            Console.WriteLine("Войти как читатель (нажмите 1)");
+            Console.WriteLine("Войти как администратор (нажмите 2)");
             Message.Red("Выйти (нажмите 3)");
 
             switch (Console.ReadLine())
@@ -22,7 +22,7 @@ namespace Module25EF
                     Program.authenticationView.Show();
                     break;
                 case "2":
-                    Program.registrationView.Show();
+                    Program.adminAuthenticationView.Show();
                     break;
                 case "3":
                     System.Environment.Exit(0);

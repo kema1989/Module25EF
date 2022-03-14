@@ -10,12 +10,9 @@ namespace Module25EF.BLL
     {
         UserRepository userRepository; 
         BookService bookService;
-        AppContext db;
 
-        public UserService(AppContext db)
+        public UserService()
         {
-            userRepository = new UserRepository(db);
-            bookService = new BookService(db);
         }
 
         public void Register()
@@ -23,7 +20,10 @@ namespace Module25EF.BLL
 
         }
 
-        //public User GetUserById
+        public User FindByEmail(string email)
+        {
+            return userRepository.GetUserByEmail(email);
+        }
 
     }
 }

@@ -23,6 +23,11 @@ namespace Module25EF
             return db.Users.FirstOrDefault(u => u.Id == id);
         }
 
+        public User GetUserByEmail(string email)
+        {
+            return db.Users.FirstOrDefault(u => u.Email == email);
+        }
+
         public void Add(User user)
         {
             db.Users.Add(user);
