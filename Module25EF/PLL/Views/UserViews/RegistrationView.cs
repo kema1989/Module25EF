@@ -1,5 +1,4 @@
-﻿using Module25EF.BLL;
-using Module25EF.PLL.Helpers;
+﻿using Module25EF.PLL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

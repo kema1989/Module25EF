@@ -1,7 +1,7 @@
-﻿using Module25EF.BLL;
-using Module25EF.PLL;
+﻿using Module25EF.PLL;
 using Module25EF.PLL.Helpers;
 using Module25EF.PLL.Views;
+using Module25EF.PLL.Views.AdminViews;
 using Module25EF.PLL.Views.UserViews;
 using System;
 
@@ -24,6 +24,7 @@ namespace Module25EF
 
         public static AdminAuthenticationView adminAuthenticationView;
         public static AdminView adminView;
+        public static BookAddingView bookAddingView;
 
 
         static void Main(string[] args)
@@ -41,7 +42,8 @@ namespace Module25EF
             bookBuyingView = new BookBuyingView(userRepository, bookRepository);
 
             adminAuthenticationView = new AdminAuthenticationView();
-            adminView = new AdminView();
+            adminView = new AdminView(userRepository, bookRepository);
+            
 
 
             while (true)

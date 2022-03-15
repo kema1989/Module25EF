@@ -14,7 +14,7 @@ namespace Module25EF
             Message.Green("Здравствуйте, вас приветствует E-Library!");
             Console.WriteLine("Войти как читатель (нажмите 1)");
             Console.WriteLine("Войти как администратор (нажмите 2)");
-            Message.Red("Выйти (нажмите 3)");
+            Message.Red("Выйти (нажмите 0)");
 
             switch (Console.ReadLine())
             {
@@ -24,7 +24,7 @@ namespace Module25EF
                 case "2":
                     Program.adminAuthenticationView.Show();
                     break;
-                case "3":
+                case "0":
                     System.Environment.Exit(0);
                     break;
             }

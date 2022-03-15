@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Module25EF.DAL_and_BLL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Module25EF
         public int Cost { get; set; }
 
         public int UserId { get; set; }
-        public User User { get; set; }
+        public List<User> Users { get; set; }
         public Author Author { get; set; }
         public List<Genre> Genres { get; set; } = new List<Genre>();
     }

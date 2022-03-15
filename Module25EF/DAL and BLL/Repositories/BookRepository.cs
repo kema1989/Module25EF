@@ -24,7 +24,7 @@ namespace Module25EF
             return db.Books.FirstOrDefault(b => b.Id == id);
         }
 
-        public void Add(Book book)
+        public void AddBook(Book book)
         {
             db.Books.Add(book);
             db.SaveChanges();

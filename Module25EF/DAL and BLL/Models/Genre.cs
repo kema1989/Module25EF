@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module25EF
+namespace Module25EF.DAL_and_BLL.Models
 {
     public class Genre
     {
