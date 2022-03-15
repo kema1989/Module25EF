@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Module25EF.PLL.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Module25EF
             {
                 Console.WriteLine("Войти в профиль (нажмите 1)");
                 Console.WriteLine("Зарегистрироваться (нажмите 2)");
-                Console.WriteLine("Выйти (нажмите 0)");
+                Message.Red("Выйти (нажмите 0)");
 
                 switch (Console.ReadLine())
                 {

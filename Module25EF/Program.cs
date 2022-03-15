@@ -43,6 +43,7 @@ namespace Module25EF
 
             adminAuthenticationView = new AdminAuthenticationView();
             adminView = new AdminView(userRepository, bookRepository);
+            bookAddingView = new BookAddingView(bookRepository);
             
 
 

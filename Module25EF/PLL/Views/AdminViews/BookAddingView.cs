@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Module25EF.DAL_and_BLL.Models;
+using Module25EF.PLL.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,43 +24,53 @@ namespace Module25EF.PLL.Views.AdminViews
                 Console.WriteLine("Введите название книги:");
                 string title = Console.ReadLine();
                 Console.WriteLine("Введите имя автора:");
-                string authorName = Console.ReadLine();
-                var author = bookRepository.Ge
+                var author = GetAuthor();
                 Console.WriteLine("Введите год выпуска:");
                 int year = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Введите стоимость:");
                 int cost = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Введите жанры книги");
-                var genres = GetGenres();
+                Console.WriteLine("Введите жанр книги:");
+                var genre = GetGenre();
 
-                if (title == "" || author == "")
-                    Console.WriteLine("Одно из полей пустое!");
-
-                bookRepository.AddBook(new Book { Title = title, Author = author, ReleaseYear = year, Cost = cost, Genres = genres });
+                bookRepository.AddBook(new Book { Title = title, Author = author, ReleaseYear = year, Cost = cost, Genre = genre }, author, genre);
+                Message.Green("Книга добавлена!");
             }
             catch
             {
-                Console.WriteLine("Введено значение неверного формата!");
+                Message.Red("Введено значение неверного формата!");
             }
         }
 
-        public List<string> GetGenres()
+        public Author GetAuthor()
         {
-            Console.WriteLine("Можно добавить до 5 жанров, для завершения добавления введите 0");
-            var genres = new List<string>();
             while (true)
             {
-                var genre = Console.ReadLine();
-                if(genre == "0")
+                string authorName = Console.ReadLine();
+                if(authorName != "")
                 {
-                    if (genres.Count > 0)
-                        return genres;
+                    if (bookRepository.GetAuthorByName(authorName) != null)
+                        return bookRepository.GetAuthorByName(authorName);
                     else
-                        Console.WriteLine("Не добавлен ни один жанр");
+                        return new Author { Name = authorName };
                 }
-                if (genres.Count == 5)
-                    return genres;
-                genres.Add(genre);
+                else
+                    Message.Red("Введено значение неверного формата! Повторите ввод");
+            }
+        }
+        public Genre GetGenre()
+        {
+            while (true)
+            {
+                string genreTitle = Console.ReadLine();
+                if(genreTitle != "")
+                {
+                    if (bookRepository.GetGenreByTitle(genreTitle) != null)
+                        return bookRepository.GetGenreByTitle(genreTitle);
+                    else
+                        return new Genre { Title = genreTitle };
+                }
+                else
+                    Message.Red("Введено значение неверного формата! Повторите ввод");
             }
         }
     }

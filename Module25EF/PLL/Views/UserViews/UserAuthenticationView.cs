@@ -32,7 +32,7 @@ namespace Module25EF.PLL.Views
                     Program.userView.Show(user);
                 }
             }
-            catch
+            catch(Exception)
             {
                 Console.WriteLine("Пользователя с таким email не существует!");
             }

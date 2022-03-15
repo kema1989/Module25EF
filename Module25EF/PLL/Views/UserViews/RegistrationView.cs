@@ -28,26 +28,27 @@ namespace Module25EF
                 
                 if(name == "" || email == "" || password == "")
                 {
-                    Console.WriteLine("Введено пустое поле!");
+                    Message.Red("Введено пустое поле!");
                     break;
                 }
                 if (!new EmailAddressAttribute().IsValid(email))
                 {
-                    Console.WriteLine("Введен email неверного формата!");
+                    Message.Red("Введен email неверного формата!");
                     break;
                 }
                 if (userRepository.GetUserByEmail(email) != null)
                 {
-                    Console.WriteLine("Данный email занят!");
+                    Message.Red("Данный email занят!");
                     break;
                 }
                 if (password.Length < 8)
                 {
-                    Console.WriteLine("Пароль должен быть не короче 8 знаков");
+                    Message.Red("Пароль должен быть не короче 8 знаков");
                     break;
                 }
 
                 userRepository.Add(new User { Name = name, Email = email, Password = password });
+                Message.Green("Вы успешно зарегистрировались!");
                 return;
             }
         }

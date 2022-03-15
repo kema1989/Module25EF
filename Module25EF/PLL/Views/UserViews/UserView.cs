@@ -13,10 +13,11 @@ namespace Module25EF.PLL.Views
         {
             while (true)
             {
+                Message.Blue($"Ваш баланс: {user.Balance}");
                 Console.WriteLine("Просмотреть список приобретенных книг (нажмите 1)");
                 Console.WriteLine("Просмотреть каталог книг (нажмите 2)");
                 Console.WriteLine("Посмотреть рекламу (и заработать денег!) (нажмите 3)");
-                Console.WriteLine("Выйти в главное меню (нажмите 0)");
+                Message.Red("Выйти в главное меню (нажмите 0)");
 
                 string keyValue = Console.ReadLine();
 

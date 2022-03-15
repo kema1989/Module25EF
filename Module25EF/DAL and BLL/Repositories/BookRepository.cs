@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Module25EF.DAL_and_BLL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,24 @@ namespace Module25EF
             return db.Books.FirstOrDefault(b => b.Id == id);
         }
 
-        public void AddBook(Book book)
+        public void AddBook(Book book, Author author, Genre genre)
         {
             db.Books.Add(book);
+            if(GetAuthorByName(author.Name) != null)
+                db.Authors.FirstOrDefault(a => a == author).Books.Add(book);
+            if(GetGenreByTitle(genre.Title) != null)
+                db.Genres.FirstOrDefault(g => g == genre).Books.Add(book);
             db.SaveChanges();
+        }
+
+        public Author GetAuthorByName(string name)
+        {
+            return db.Authors.FirstOrDefault(a => a.Name == name);
+        }
+
+        public Genre GetGenreByTitle(string title)
+        {
+            return db.Genres.FirstOrDefault(g => g.Title == title);
         }
 
         public void Delete(Book book)
@@ -42,6 +57,32 @@ namespace Module25EF
             db.SaveChanges();
         }
 
+        public void AddAuthor(Author author)
+        {
+            db.Authors.Add(author);
+            db.SaveChanges();
+        }
+
+        public void DeleteAuthor(Author author)
+        {
+            db.Books.RemoveRange(db.Books.Where(b => b.Author == author));
+            db.Authors.Remove(author);
+            db.SaveChanges();
+        }
+
+        public void AddGenre(Genre genre)
+        {
+            db.Genres.Add(genre);
+            db.SaveChanges();
+        }
+
+        public void DeleteGenre(Genre genre)
+        {
+            db.Books.RemoveRange(db.Books.Where(b => b.Genre == genre));
+            db.Genres.Remove(genre);
+            db.SaveChanges();
+        }
+
         // Задание 25.5.4
         // 1)
         public List<Book> GetBooksByGenre(string genreTitle)
@@ -52,14 +93,6 @@ namespace Module25EF
         public List<Book> GetBooksByYears(int y1, int y2)
         {
             return db.Books.Where(b => b.ReleaseYear >= y1 && b.ReleaseYear <= y2).ToList();
-        }
-        // ???
-        public List<Book> GetBooksByGenreAndDate(string genreTitle, int y1, int y2)
-        {
-            return db.Books
-                .Where(b => b.Genres.Contains(db.Genres.FirstOrDefault(g => g.Title == genreTitle)))
-                .Where(b => b.ReleaseYear >= y1 && b.ReleaseYear <= y2)
-                .ToList();
         }
 
         // 2)

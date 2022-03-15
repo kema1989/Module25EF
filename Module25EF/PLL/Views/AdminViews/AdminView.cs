@@ -26,7 +26,7 @@ namespace Module25EF.PLL
                 Console.WriteLine("Добавить пользователя (нажмите 4)");
                 Console.WriteLine("Удалить пользователя (нажмите 5)");
                 Console.WriteLine("Показать всех пользователей (нажмите 6)");
-                Console.WriteLine("Выйти (нажмите 0)");
+                Message.Red("Выйти (нажмите 0)");
 
                 switch (Console.ReadLine())
                 {
@@ -37,12 +37,15 @@ namespace Module25EF.PLL
                         DeleteBook();
                         break;
                     case "3":
-                        bookRepository.GetAllBooksSortedByTitle().ForEach(b =>
+                        if (bookRepository.GetAllBooksSortedByTitle().Count == 0)
+                            Message.Blue("Пусто...");
+                        else
                         {
-                            Console.WriteLine($"Id: {b.Id}, Название: {b.Title}, Автор: {b.Author.Name}, Год выпуска: {b.ReleaseYear},\n, Стоимость: {b.Cost}");
-                            Console.Write("Жанр: ");
-                            b.Genres.ForEach(g => Console.Write(g.Title));
-                        });
+                            bookRepository.GetAllBooksSortedByTitle().ForEach(b =>
+                            {
+                                Console.WriteLine($"<<Id: {b.Id}, Название: {b.Title}, Автор: {b.Author.Name},\nГод выпуска: {b.ReleaseYear}, Жанр: {b.Genre.Title}, Стоимость: {b.Cost}>>");
+                            });
+                        }
                         break;
                     case "4":
                         Program.registrationView.Show();
@@ -51,10 +54,15 @@ namespace Module25EF.PLL
                         DeleteUser();
                         break;
                     case "6":
-                        userRepository.GetAllUsers().ForEach(u =>
+                        if (userRepository.GetAllUsers().Count == 0)
+                            Message.Blue("Пусто...");
+                        else
                         {
-                            Console.WriteLine($"Id: {u.Id}, Имя: {u.Name}, Email: {u.Email}");
-                        });
+                            userRepository.GetAllUsers().ForEach(u =>
+                            {
+                                Console.WriteLine($"Id: {u.Id}, Имя: {u.Name}, Email: {u.Email}");
+                            });
+                        }
                         break;
                     case "0":
                         return;

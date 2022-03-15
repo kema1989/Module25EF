@@ -17,6 +17,6 @@ namespace Module25EF
         public int UserId { get; set; }
         public List<User> Users { get; set; }
         public Author Author { get; set; }
-        public List<Genre> Genres { get; set; } = new List<Genre>();
+        public Genre Genre { get; set; }
     }
 }
